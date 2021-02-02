@@ -1,0 +1,308 @@
+<template>
+	<article class="slds-card">
+		<div class="slds-card__header slds-grid">
+			<div>
+				<div class="slds-grid">
+					<div class="slds-col">
+						<lightning-icon class="" style="margin: 8px" icon-name="standard:performance" size="medium">
+						</lightning-icon>
+					</div>
+					<div class="slds-col">
+						<p class="">Sales Performance</p>
+						<h2 class="slds-expression__title">Sales Performance Overview</h2>
+					</div>
+				</div>
+				<div class="slds-expression__options">
+					<div class="slds-form-element">
+						<div class="slds-form-element">
+							<div class="slds-form-element__control">
+								<div class="slds-combobox_container slds-size_small">
+									<div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aria-expanded="false"
+										aria-haspopup="listbox" role="combobox">
+										<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+											<input
+                        type="text"
+                        onclick={showUserList}
+                        class="slds-input slds-combobox__input"
+                        id="combobox-id-1"
+                        aria-controls="listbox-id-1"
+                        role="textbox"
+                        value={selectedUser}
+                        placeholder={selectedUser}
+                        readonly=""
+                      />
+											<span
+                        class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
+                      >
+                        <lightning-icon
+                          icon-name="utility:down"
+                          size="x-small"
+                          class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default"
+                        ></lightning-icon>
+                      </span>
+										</div>
+										<div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+											role="listbox">
+											<ul class="slds-listbox slds-listbox_vertical" role="presentation">
+
+												<template for:each={Userlist} for:item="users">
+													<li role="presentation" class="slds-listbox__item" key={users}>
+
+
+														<div id={users} class=" slds-media slds-listbox__option slds-media_small" role="option">
+															<span
+                              class="slds-media__figure slds-listbox__option-icon"
+                            ></span>
+															<span
+                              class="slds-media__body"
+                              style="margin-left: 10px"
+                              onclick={onOutMous}
+                              data-picklistvalue={users}
+                              >
+                             <span>
+														 
+														 <lightning-icon icon-name="standard:user" size="small" class="UserAvtar">
+																</lightning-icon>
+ 														</span>
+															<span class="slds-truncate" title={users}>
+                                {users}</span>
+															</span>
+														</div>
+
+													</li>
+
+												</template>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--tab starts -->
+
+		</div>
+		<div class="slds-tabs_default">
+
+			<div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel"
+				aria-labelledby="tab-default-1__item">
+				<div class="slds-tabs_scoped">
+					<ul class="slds-tabs_scoped__nav" role="tablist">
+						<li class="slds-tabs_scoped__item tab2018 slds-is-active" title="Item One" role="presentation">
+							<a class="slds-tabs_scoped__link" href="#" role="tab" tabindex="0" onload={activatetab}
+								aria-selected="true" aria-controls="tab-scoped-1" id="tab-scoped-1__item">2018</a>
+						</li>
+						<li class="slds-tabs_scoped__item tab2019" title="Item Two" role="presentation">
+							<a class="slds-tabs_scoped__link" href="#" role="tab" tabindex="-1" aria-selected="false"
+								onclick={tabchange} aria-controls="tab-scoped-2" id="tab-scoped-2__item">2019</a>
+						</li>
+						<li class="slds-tabs_scoped__item" title="Item Three" role="presentation">
+							<a class="slds-tabs_scoped__link" href="#" role="tab" tabindex="-1" aria-selected="false"
+								aria-controls="tab-scoped-3" id="tab-scoped-3__item">2020</a>
+						</li>
+					</ul>
+					<div id="tab-scoped-1" class="slds-tabs_scoped__content slds-show" role="tabpanel"
+						aria-labelledby="tab-scoped-1__item">
+
+						<template for:each={Userlist} for:item="usr">
+
+							<table key={urs} class="slds-table slds-table_fixed-layout" role="grid">
+								<thead>
+
+
+									<tr class="slds-line-height_reset" style="background-color:rgb(255, 94, 0);">
+
+										<th aria-label="Period Start Month" aria-sort="none" class="slds-has-button-menu headerbgcolor"
+											scope="col">
+											<span> <span class="isShowReport" id={usr} name={usr} data-current-acco={usr} onclick={isShow}>  <lightning-icon
+                          icon-name="utility:switch"
+                          size="x-small"
+                          class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default"
+                        ></lightning-icon>
+                </span>
+											<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+												<span class="slds-truncate" title="Period Start Month">Period Start Month</span>
+
+											</div>
+											</span>
+
+										</th>
+										<th aria-label="Commit Quota" aria-sort="none" class="slds-has-button-menu headerbgcolor"
+											scope="col">
+											<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+												<span class="slds-truncate" title="Commit Quota">Commit Quota</span>
+
+											</div>
+
+
+										</th>
+
+										<th aria-label="Actual Quota" aria-sort="none" class="slds-has-button-menu headerbgcolor"
+											scope="col">
+
+
+											<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+												<span class="slds-truncate" title="Actual Quota">Actual Quota</span>
+
+											</div>
+
+
+										</th>
+
+										<th aria-label="Progress" aria-sort="none" class="headerbgcolor" scope="col">
+
+
+											<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+												<span class="slds-truncate" title="Progress">Progress</span>
+												<span class="slds-icon_container slds-icon-utility-arrowdown">
+
+
+              </span>
+											</div>
+										</th>
+
+									</tr>
+
+
+
+
+								</thead>
+
+
+								<tbody class="slds-hide" data-accordian={usr} name={usr}>
+
+
+									<tr>
+										<td colspan="4" class="slds-truncate">
+											<p class="slds-truncate">sadddd dddddddddddddddd ddddddddddd ddddddddd dddddsadddddddddddd dddddd
+												ddddddddsadadd</p>
+											<div class="slds-summary-detail slds-p-top_x-small slds-truncate" style="margin-left: 50px;">
+												<button class="slds-button slds-button_icon" title="Toggle details for Summary Title" aria-controls="expando-unique-id" aria-expanded="false">
+      <lightning-icon icon-name="utility:switch" size="x-small"></lightning-icon>
+      <span class="slds-assistive-text">Toggle details for Summary Title</span>
+    </button>
+												<div>
+													<div class="slds-summary-detail__title">
+														<h3 class="slds-text-heading_small slds-truncate" title="summary title">Quater 1</h3>
+													</div>
+
+												</div>
+											</div>
+										</td>
+
+									</tr>
+									<tr>
+										<td colspan="4" class="slds-has-button-menu">
+											<div class="slds-summary-detail slds-p-top_x-small" style="margin-left: 50px;">
+												<button class="slds-button slds-button_icon" title="Toggle details for Summary Title" aria-controls="expando-unique-id" aria-expanded="false">
+                        <lightning-icon icon-name="utility:switch" size="x-small"></lightning-icon>
+                        <span class="slds-assistive-text">Toggle details for Summary Title</span>
+                      </button>
+												<div>
+													<div class="slds-summary-detail__title">
+														<h3 class="slds-text-heading_small slds-truncate" title="summary title">Quater 2</h3>
+													</div>
+
+												</div>
+											</div>
+										</td>
+									</tr>
+
+
+
+									<tr>
+										<td colspan="4" class="slds-has-button-menu">
+											<div class="slds-summary-detail slds-p-top_x-small" style="margin-left: 50px;">
+												<button class="slds-button slds-button_icon" title="Toggle details for Summary Title" aria-controls="expando-unique-id" aria-expanded="false">
+                    <lightning-icon icon-name="utility:switch" size="x-small"></lightning-icon>
+                    <span class="slds-assistive-text">Toggle details for Summary Title</span>
+                  </button>
+												<div>
+													<div class="slds-summary-detail__title">
+														<h3 class="slds-text-heading_small slds-truncate" title="summary title">Quater 3</h3>
+													</div>
+
+												</div>
+											</div>
+										</td>
+									</tr>
+
+
+									<tr>
+										<td class="" colspan="4">
+											<div class="slds-summary-detail slds-p-top_x-small" style="margin-left: 50px;">
+												<button class="slds-button slds-button_icon" title="Toggle details for Summary Title" aria-controls="expando-unique-id" aria-expanded="false">
+                    <lightning-icon icon-name="utility:switch" size="x-small"></lightning-icon>
+                    <span class="slds-assistive-text">Toggle details for Summary Title</span>
+                  </button>
+												<div>
+													<div class="slds-summary-detail__title">
+														<h3 class="slds-text-heading_small slds-truncate" title="summary title">Quater 3</h3>
+													</div>
+
+												</div>
+											</div>
+										</td>
+									</tr>
+
+
+
+
+									<tr aria-selected="false" class="slds-hint-parent">
+
+										<th scope="row" tabindex="0">
+											<div class="slds-truncate" title="Acme - 1,200 Widgets">
+												<a href="javascript:void(0);" tabindex="-1">Acme - 1,200 Widgets</a>
+											</div>
+										</th>
+										<td role="gridcell">
+											<div class="slds-truncate" title="Acme">Acme</div>
+										</td>
+										<td role="gridcell">
+											<div class="slds-truncate" title="4/10/15">4/10/15</div>
+										</td>
+										<td role="gridcell">
+											<div class="slds-truncate" title="Value Proposition">Value Proposition</div>
+										</td>
+
+
+									</tr>
+
+
+								</tbody>
+
+							</table>
+
+						</template>
+					</div>
+					<div id="tab-scoped-2" class="slds-tabs_scoped__content slds-hide" role="tabpanel"
+						aria-labelledby="tab-scoped-2__item">
+						Item Two Content
+					</div>
+					<div id="tab-scoped-3" class="slds-tabs_scoped__content slds-hide" role="tabpanel"
+						aria-labelledby="tab-scoped-3__item">
+						Item Three Content
+					</div>
+				</div>
+			</div>
+			<div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel"
+				aria-labelledby="tab-default-2__item">
+				<div class="slds-grid strip" style="height:1cm;width:80%;background-color:red;"></div>
+				<div class="slds-grid"> Item Two Content</div>
+			</div>
+			<div id="tab-default-3" class="slds-tabs_default__content slds-hide" role="tabpanel"
+				aria-labelledby="tab-default-3__item">
+				Item Three Content
+			</div>
+
+
+
+
+
+
+
+		</div>
+	</article>
+</template>

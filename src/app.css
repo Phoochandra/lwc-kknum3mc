@@ -1,0 +1,18 @@
+tr .headerbgcolor {
+    border-bottom-color:white;
+    background-color: rgb(255, 196, 0);
+    color: white;
+}
+
+.isShowReport {
+    padding-right: 10px;
+    float: left;
+}
+.UserAvtar
+{
+
+margin: 10px;
+
+}
+table{margin-bottom: 2px;
+    border-bottom-color: #24e0e0;}
