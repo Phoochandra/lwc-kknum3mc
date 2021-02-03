@@ -1,7 +1,10 @@
-tr .headerbgcolor {
-    border-bottom-color:white;
+.headerbgcolor {
+   border-bottom-color: white;
+    height: 25px;
+    width: 100%;
     background-color: rgb(255, 196, 0);
     color: white;
+    margin-bottom: 2px;
 }
 
 .isShowReport {
@@ -16,3 +19,114 @@ margin: 10px;
 }
 table{margin-bottom: 2px;
     border-bottom-color: #24e0e0;}
+
+
+    .slds-shows{
+
+    display: contents;
+    }
+   
+   
+   .widgetgrid{ display: table-row;}
+    
+  .widget
+  {
+      position: relative;
+      display: block;
+      float: left;
+width:120px;
+height: 95px;
+margin: 5px;
+background-color: #84043fbd;
+
+border-radius: 5%;
+
+
+
+  }
+.KPIheader
+{
+
+position: absolute;
+text-align: center;
+width: 100%;
+background-color:#00396b;
+color:white;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+}
+.KPIFooter
+{
+position: absolute;
+bottom: 0px;
+padding-top:5px;
+text-align: center;
+width: 100%;
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+background-color:#e2e2e2;
+color:white;
+
+}
+.widgetcontent
+{
+position:relative;
+ margin-top:20px; 
+ padding-left:10px;
+  color:white; 
+  font-weight:400;
+ text-align:center;
+
+}
+.isexpandable a{
+
+text-decoration: none;
+color:white;
+
+}
+
+.isexpandable:hover{
+
+text-decoration: none;
+color:white;
+
+}
+a:hover{
+    text-decoration: none;
+}
+.expndIcon{
+
+background: aqua;
+margin-left:10px;;
+
+}
+.quaterlystrip
+{margin-left:0px; 
+width: 100%;
+height: 25px;
+color: white;
+background-color: grey;
+
+
+
+}
+
+ .headerbgcolor:hover{
+background-color: rgb(202, 191, 155);
+text-decoration: none;
+color:white;
+
+}
+ .quaterlystrip:hover{
+background-color: rgb(202, 191, 155);
+text-decoration: none;
+color:white;
+
+}
+
+
+.switIcon{
+
+    margin-left: 10px;
+    background:azure;
+}
